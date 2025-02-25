@@ -1,0 +1,14 @@
+---
+import { Image } from "astro:assets";
+import MyImage from "../assets/js.png";
+---
+
+<div class="w-[400px] h-80 rounded-xl max-md:w-80 max-md:h-80 hover:transition-all duration-500 hover:scale-105 shadow-xl">
+  <div class="w-auto">
+    <Image src={MyImage} alt="" class="rounded-t-xl" />
+  </div>
+  <div>
+    <h2 class="px-5 py-5 flex justify-start items-center text-3xl font-semibold text-pretty">aaaaaaIntroduccion a js</h2>
+    <p class="px-5 flex justify-start items-center text-pretty">06-20-1999</p>
+  </div>
+</div>
