@@ -1,9 +1,20 @@
 ---
+import { getCollection } from 'astro:content';
 import Card from "../components/Card.astro";
+
+// Obtener las noticias
+const news = await getCollection('news');
+
+// Ordenar por fecha y tomar las 3 últimas
+const latestNews = news
+  .sort((a, b) => new Date(b.data.date) - new Date(a.data.date))
+  .slice(0, 3);
+
+//console.log(latestNews)
 ---
 
 <section class="flex flex-wrap max-w-7xl mx-auto gap-5 justify-center items-center mt-20">
-    <Card/>
-    <Card/>
-    <Card/>
+  {latestNews.map((post) => (
+    <Card title={post.data.title} date={post.data.date} image={post.data.image} />
+  ))}
 </section>
