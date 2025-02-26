@@ -8,6 +8,7 @@ const newsCollection = defineCollection({
     image: z.string().optional(),
     description: z.string(),
     date: z.string(), // Usar z.date() para la fecha
+    slug: z.string(),
   }),
 });
 

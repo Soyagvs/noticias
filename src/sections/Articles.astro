@@ -5,12 +5,12 @@ import Card from "../components/Card.astro";
 // Obtener las noticias
 const news = await getCollection('news');
 
+//console.log(news); // Agrega esto para verificar si las noticias están llegando
+
 // Ordenar por fecha y tomar las 3 últimas
 const latestNews = news
   .sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date))
   .slice(0, 3);
-
-//console.log(latestNews)
 ---
 
 <section class="flex flex-wrap max-w-7xl mx-auto gap-5 justify-center items-center mt-20">
