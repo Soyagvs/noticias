@@ -1,26 +1,35 @@
 ---
 import { getCollection } from 'astro:content';
 
-// Obtener el "slug" de la URL
-const { slug } = Astro.params;
+export async function getStaticPaths() {
+  const news = await getCollection('news');
 
-// Obtener todas las noticias
+  return news.map((post: any) => ({
+    params: { slug: post.data.slug }, // Asegurar que se pase 'slug'
+  }));
+}
+
+const { slug } = Astro.params; // Acceder correctamente al parámetro
+
+if (!slug) {
+  throw new Error('Slug no proporcionado');
+}
+
 const news = await getCollection('news');
-
-// Buscar la noticia específica por el slug (título o identificador único)
-const post = news.find((post) => post.data.slug === slug);
+const post = news.find((post: any) => post.data.slug === slug);
 
 if (!post) {
   throw new Error('Noticia no encontrada');
 }
+
+const { Content } = await post.render();
 ---
 
-<!-- Mostrar el contenido de la noticia -->
 <article class="prose max-w-3xl mx-auto mt-20">
   <h1>{post.data.title}</h1>
   <p class="text-gray-600">Por {post.data.author} | {new Date(post.data.date).toLocaleDateString()}</p>
   <img src={post.data.image} alt={post.data.title} class="w-full mt-5 rounded-xl" />
   <div class="mt-5">
-    {post.body} <!-- Mostrar el contenido de la noticia -->
+    <Content />
   </div>
 </article>

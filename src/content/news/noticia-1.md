@@ -1,9 +1,12 @@
 ---
-title: "Título de la noticia 1"
-author: "Martinez"
-date: "2024-06-25"
+title: "Terror de verdad"
+author: "Martinez Agustin"
 image: "/assets/js.png"
-description: "Breve descripción de la noticia."
+description: "Una breve historia de terror"
+date: "26-02-2025"
 slug: "noticia-1"
 ---
-Contenido de la noticia aquí...
+
+## Terror
+#hOLA
+cle

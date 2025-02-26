@@ -1,20 +1,30 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 import Card from "../components/Card.astro";
 
 // Obtener las noticias
-const news = await getCollection('news');
+const news = await getCollection("news");
 
-//console.log(news); // Agrega esto para verificar si las noticias están llegando
+console.log(news); // Agrega esto para verificar si las noticias están llegando
 
 // Ordenar por fecha y tomar las 3 últimas
 const latestNews = news
-  .sort((a, b) => +new Date(b.data.date) - +new Date(a.data.date))
+  .sort((a: any, b: any) => +new Date(b.data.date) - +new Date(a.data.date))
   .slice(0, 3);
 ---
 
-<section class="flex flex-wrap max-w-7xl mx-auto gap-5 justify-center items-center mt-20">
-  {latestNews.map((post) => (
-    <Card title={post.data.title} date={post.data.date} image={post.data.image} />
-  ))}
+<section
+  class="flex flex-wrap max-w-7xl mx-auto gap-5 justify-center items-center mt-20"
+>
+  {
+    latestNews.map((post: any) => (
+      <a href={`/news/${post.data.slug}`} class="block">
+        <Card
+          title={post.data.title}
+          date={post.data.date}
+          image={post.data.image}
+        />
+      </a>
+    ))
+  }
 </section>

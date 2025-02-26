@@ -4,11 +4,15 @@ const { title, date, image } = Astro.props;
 
 <div class="w-[400px] h-80 rounded-xl max-md:w-80 max-md:h-80 hover:transition-all duration-500 hover:scale-105 shadow-xl">
   <div class="w-auto">
-    <!-- Usar la imagen proporcionada -->
-    <img src={image} alt={title} class="rounded-t-xl" />
+    <!-- Usar la imagen proporcionada, si no hay imagen, mostrar una imagen predeterminada -->
+    <img src={image || '/images/default.jpg'} alt={title} class="rounded-t-xl" />
   </div>
   <div>
-    <h2 class="px-5 py-5 flex justify-start items-center text-3xl font-semibold text-pretty">{title}</h2>
-    <p class="px-5 flex justify-start items-center text-pretty">{date}</p>
+    <h2 class="px-5 py-5 flex justify-start items-center text-3xl font-semibold text-pretty">
+      {title || 'Sin título'}
+    </h2>
+    <p class="px-5 flex justify-start items-center text-pretty">
+      {date || 'Fecha no disponible'}
+    </p>
   </div>
 </div>
