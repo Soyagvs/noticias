@@ -17,7 +17,7 @@
   left: 20%;
   transform: translateX(-50%); /* Centra el botón horizontalmente */
   color: black;
-  font-size:3rem; /* 18px */
+  font-size:2rem; /* 18px */
   padding: 10px 20px;
   cursor: pointer;
   outline: none;
