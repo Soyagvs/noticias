@@ -17,7 +17,7 @@
   left: 20%;
   transform: translateX(-50%); /* Centra el botón horizontalmente */
   color: black;
-  font-size: 1.125rem; /* 18px */
+  font-size:3rem; /* 18px */
   padding: 10px 20px;
   cursor: pointer;
   outline: none;
@@ -60,8 +60,16 @@
   margin-bottom: -50px;
 }
 
-/* Responsividad */
-@media (max-width: 768px) {
+/* Estilos del contenido */
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/*RESPONSIVE*/
+
+@media (width <= 768px) {
   .title-h1 {
     font-size: 2rem; /* 32px */
   }
@@ -76,14 +84,15 @@
   }
 
   .back-button {
-    font-size: 1rem; /* Tamaño más pequeño en móvil */
+    font-size: 1.5rem; /* Tamaño más pequeño en móvil */
     padding: 8px 16px;
+    padding-left: 100px;
   }
 }
 
-/* Estilos del contenido */
-.content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
+@media (width >= 768px) {
+  .back-button {
+    font-size: 1.5rem; /* Tamaño más pequeño en móvil */
+    padding: 8px 16px;
+  }
 }

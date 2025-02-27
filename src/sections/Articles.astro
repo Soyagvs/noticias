@@ -5,8 +5,6 @@ import Card from "../components/Card.astro";
 // Obtener las noticias
 const news = await getCollection("news");
 
-console.log(news); // Agrega esto para verificar si las noticias están llegando
-
 // Ordenar por fecha y tomar las 3 últimas
 const latestNews = news
   .sort((a: any, b: any) => +new Date(b.data.date) - +new Date(a.data.date))
@@ -17,14 +15,28 @@ const latestNews = news
   class="flex flex-wrap max-w-7xl mx-auto gap-5 justify-center items-center mt-20"
 >
   {
-    latestNews.map((post: any) => (
-      <a href={`/news/${post.data.slug}`} class="block">
-        <Card
-          title={post.data.title}
-          date={post.data.date}
-          image={post.data.image}
+    latestNews.length > 0 ? (
+      latestNews.map((post: any) => (
+        <a href={`/news/${post.slug}`} class="block">
+          <Card
+            title={post.data.title}
+            date={post.data.date}
+            image={post.data.image}
+          />
+        </a>
+      ))
+    ) : (
+      <section class="flex flex-col justify-center items-center">
+        <p class="text-gray-500 text-xl text-center w-full py-10 pb-3">
+          Aún no hay noticias lanzadas.
+        </p>
+        <img
+          src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMW5vZnlzcTFlc203am85N2hqOXphbjF5cXg1emR2dG5pamlmb3p6diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nURzWHsOTpDDa/giphy.gif"
+          alt="Imagen de gatito"
+          class="w-52 md:w-full"
+          loading="lazy"
         />
-      </a>
-    ))
+      </section>
+    )
   }
 </section>
