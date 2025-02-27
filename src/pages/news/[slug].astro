@@ -1,35 +1,49 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
+import "../../styles/Slug.css";
+
+// Definir un tipo para `post`
+interface Post {
+  id: string;
+  slug: string;
+  data: {
+    title: string;
+    author: string;
+    date: string;
+    image: string;
+  };
+  render: () => Promise<{ Content: any }>;
+}
 
 export async function getStaticPaths() {
-  const news = await getCollection('news');
+  const news = await getCollection("news");
 
   return news.map((post: any) => ({
-    params: { slug: post.data.slug }, // Asegurar que se pase 'slug'
+    params: { slug: post.slug },
+    props: { post },
   }));
 }
 
-const { slug } = Astro.params; // Acceder correctamente al parámetro
-
-if (!slug) {
-  throw new Error('Slug no proporcionado');
-}
-
-const news = await getCollection('news');
-const post = news.find((post: any) => post.data.slug === slug);
+const { post } = Astro.props as { post: Post }; // Asegurar que `post` tiene el tipo correcto
 
 if (!post) {
-  throw new Error('Noticia no encontrada');
+  throw new Error("Noticia no encontrada");
 }
 
 const { Content } = await post.render();
 ---
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<section class="section-hero">
+  <a href="/" class="back-button">← Volver atrás</a>
+  <img class="image-hero" src={post.data.image} alt={post.data.title} />
+  <h1 class="title-h1">{post.data.title}</h1>
+  <p class="data">
+    Por {post.data.author} | {new Date(post.data.date).toLocaleDateString()}
+  </p>
+</section>
 
-<article class="prose max-w-3xl mx-auto mt-20">
-  <h1>{post.data.title}</h1>
-  <p class="text-gray-600">Por {post.data.author} | {new Date(post.data.date).toLocaleDateString()}</p>
-  <img src={post.data.image} alt={post.data.title} class="w-full mt-5 rounded-xl" />
-  <div class="mt-5">
-    <Content />
-  </div>
-</article>
+<div class="content">
+  <Content />
+</div>

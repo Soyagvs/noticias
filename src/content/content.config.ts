@@ -2,6 +2,7 @@ import { defineCollection, z } from 'astro:content';
 
 // Definir la colección "news"
 const newsCollection = defineCollection({
+  type: 'content',
   schema: z.object({
     title: z.string(),
     author: z.string(),
