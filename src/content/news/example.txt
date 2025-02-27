@@ -1,0 +1,90 @@
+FORMA DE EMPEZAR EL ARCHIVO
+
+---
+title: "Titulo de prueba"
+author: ""
+date: "01-27-1999" mes-dia-año
+img: ""
+---
+
+.................................................................................
+
+TITULOS O SUBTITULOS
+
+# Título Principal (H1)
+## Subtítulo (H2)
+### Sub-subtítulo (H3)
+#### H4
+##### H5
+###### H6
+
+....................................................................................
+
+TIPOS DE TEXTOS
+
+**Negrita**  
+*Itálica*  
+~~Texto tachado~~  
+
+....................................................................................
+
+LISTA DESORDENADA 
+
+lista desordenada con '-' o '*'
+- Elemento 1
+- Elemento 2
+  - Sub-elemento 2.1
+  - Sub-elemento 2.2
+
+LISTA ORDENADA
+
+lista ordenada con numeros '1.'
+1.
+2.
+
+......................................................................................
+
+IMAGENES
+
+enlaces a imagenes(te lleva a la imagen)
+[Texto del enlace](https://ejemplo.com)
+
+imagenes(muestra la imagen)
+![Texto alternativo](https://via.placeholder.com/150)
+
+ejemplo combinado
+[![Logo de Google](https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png)](https://www.google.com)
+
+..........................................................................................
+
+CODIGOS EN TEXTO
+
+bloques de codigo
+```javascript
+console.log("Hola, Markdown!");
+```
+
+...........................................................................................
+
+CITAS DE TEXTO
+
+citas y bloques de texto con >
+| esta es una cita
+
+............................................................................................
+
+TABLAS
+
+tablas
+| Nombre   | Edad | País  |
+|----------|------|-------|
+| Juan     | 25   | 🇪🇸  |
+| María    | 30   | 🇲🇽  |
+| Carlos   | 28   | 🇦🇷  |
+
+..............................................................................................
+
+SEPARADOR CON LINEA
+
+separadores(lineas)
+---
