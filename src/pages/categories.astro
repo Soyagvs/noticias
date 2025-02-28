@@ -1,0 +1,62 @@
+---
+const title = "Categorias | DayNews";
+const description = "Bienvenido a mi increíble sitio web, aquí encontrarás las últimas noticias de tecnología, deportes, entretenimiento y mucho más.";
+const keywords = "HTML, CSS, JavaScript, Astro";
+const author = "Martinez Agustin";
+const locale = "es_ES";
+const url = "https://daynews.vercel.app/categories";
+const image = "";
+---
+
+<head>
+    <!-- Meta estándar -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content={author} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="content-language" content={locale} />
+  
+    <!-- Open Graph (para compartir en Facebook, LinkedIn, etc.) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={url} />
+    <meta property="og:image" content={image} />
+    <meta property="og:site_name" content={title} />
+    <meta property="og:locale" content={locale} />
+  
+    <!-- Twitter Cards (para compartir en Twitter/X) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <meta name="twitter:site" content="@TuUsuario" />
+    <meta name="twitter:creator" content="@TuUsuario" />
+  
+    <!-- Robots (Controla cómo los buscadores indexan la página) -->
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+  
+    <!-- Canonical (Evita contenido duplicado) -->
+    <link rel="canonical" href={url} />
+  
+    <!-- Schema.org (Para mejorar el SEO en Google) -->
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": title,
+        "description": description,
+        "url": url,
+        "author": { "@type": "Person", "name": author }
+      })}
+    </script>
+  </head>
+
+<main>
+
+</main>
