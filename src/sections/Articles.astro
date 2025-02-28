@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Card from "../components/Card.astro";
+import ButtonSeeAll from "../components/ui/ButtonSeeAll.astro";
 
 // Obtener las noticias
 const news = await getCollection("news");
@@ -12,7 +13,7 @@ const latestNews = news
 ---
 
 <section
-  class="flex flex-wrap max-w-7xl mx-auto gap-5 justify-center items-center mt-20"
+  class="flex flex-col max-w-7xl mx-auto gap-5 justify-center items-center mt-20"
 >
   {
     latestNews.length > 0 ? (
@@ -24,6 +25,7 @@ const latestNews = news
             image={post.data.image}
           />
         </a>
+      <ButtonSeeAll/>
       ))
     ) : (
       <section class="flex flex-col justify-center items-center">
