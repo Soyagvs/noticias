@@ -36,11 +36,11 @@ const { Content } = await post.render();
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 </head>
 <section class="section-hero">
-  <a href="/" class="back-button">← Volver atrás</a>
+  <a href="/" class="back-button">← go back</a>
   <img class="image-hero" src={post.data.image} alt={post.data.title} />
   <h1 class="title-h1">{post.data.title}</h1>
   <p class="data">
-    Por {post.data.author} | {new Date(post.data.date).toLocaleDateString()}
+    by {post.data.author} | {new Date(post.data.date).toLocaleDateString()}
   </p>
 </section>
 

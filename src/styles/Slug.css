@@ -6,7 +6,7 @@
   align-items: center;
   text-align: center;
   padding: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   position: relative; /* Necesario para posicionar el botón */
 }
 
@@ -22,6 +22,7 @@
   cursor: pointer;
   outline: none;
   border: none;
+  text-decoration: none;
 }
 
 .back-button:focus {
@@ -66,13 +67,14 @@
   margin: 0 auto;
   padding: 2rem;
   border-top: gray 1px solid;
+  font-size: 1.5rem; /* 24px */
 }
 
 /*RESPONSIVE*/
 
 @media (width <= 768px) {
   .title-h1 {
-    font-size: 2rem; /* 32px */
+    font-size: 2.75rem; /* 32px */
   }
 
   .image-hero {
