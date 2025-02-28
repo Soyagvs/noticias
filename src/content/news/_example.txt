@@ -3,8 +3,9 @@ FORMA DE EMPEZAR EL ARCHIVO
 ---
 title: "Titulo de prueba"
 author: ""
+image: ""
+description: ""
 date: "01-27-1999" mes-dia-año
-img: ""
 ---
 
 .................................................................................
