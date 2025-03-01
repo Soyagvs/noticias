@@ -36,7 +36,7 @@ const { Content } = await post.render();
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 </head>
-<section class="section-hero">
+<section class="section-hero markdown-background">
   <a href="/" class="back-button">← go back</a>
   <img class="image-hero" src={post.data.image} alt={post.data.title} />
   <h1 class="title-h1">{post.data.title}</h1>
@@ -49,6 +49,6 @@ const { Content } = await post.render();
   </p>
 </section>
 
-<div class="content">
+<div class="content markdown-background ">
   <Content />
 </div>

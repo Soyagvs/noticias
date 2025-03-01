@@ -12,18 +12,21 @@
 
 /* Botón "Volver atrás" */
 .back-button {
+  display: flex;
   position: absolute;
   top: 10px; /* Ajusta la posición vertical */
   left: 20%;
   transform: translateX(-50%); /* Centra el botón horizontalmente */
   color: black;
   font-size: 2rem; /* 18px */
-  padding: 10px 20px;
   cursor: pointer;
   outline: none;
   border: none;
   text-decoration: none;
+  justify-content: center;
+  text-align: center;
 }
+
 
 .back-button:focus {
   outline: none; /* Evita que el borde azul aparezca cuando se hace focus */
@@ -36,16 +39,16 @@
 /* Estilos para la imagen */
 .image-hero {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1000px;
   border-radius: 12px;
-  box-shadow: 0 8px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.5);
   margin-top: 40px;
   object-fit: cover; /* Asegura que la imagen se ajuste bien */
 }
 
 /* Título */
 .title-h1 {
-  font-size: 5rem;
+  font-size: 3rem;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   padding-top: 20px;
@@ -54,16 +57,16 @@
 
 /* Datos (autor y fecha) */
 .data {
-  margin-top: -50px;
+  margin-top: -30px;
   color: #6b7280; /* Gris */
-  font-size: 1.125rem; /* 18px */
+  font-size: 1.1rem; /* 18px */
   text-align: center;
   margin-bottom: -50px;
 }
 
 /* Estilos del contenido */
 .content {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 2rem;
   border-top: gray 1px solid;
@@ -79,7 +82,13 @@
 }
 /*RESPONSIVE*/
 
-@media (width <= 768px) {
+@media (width >= 768px) {
+  .back-button {
+    padding: 8px 16px;
+  }
+}
+
+@media (width < 768px) {
   .title-h1 {
     font-size: 2.75rem; /* 32px */
   }
@@ -89,19 +98,29 @@
   }
 
   .data {
-    font-size: 1.4rem; /* 16px */
+    font-size: 1.5rem; /* 16px */
     margin-top: -10px;
   }
 
   .back-button {
-    font-size: 1.5rem; /* Tamaño más pequeño en móvil */
-    padding: 8px 16px;
+    font-size: 1.3rem; /* 18px */
   }
 }
 
-@media (width >= 768px) {
+@media (width > 768px) {
   .back-button {
-    font-size: 1.5rem; /* Tamaño más pequeño en móvil */
-    padding: 8px 16px;
+    font-size: 1rem; /* Tamaño más pequeño en móvil */
   }
+}
+
+.markdown-background {
+  position: relative;
+  inset: 0;
+  z-index: 0;
+  height: 100%;
+  width: screen;
+  background-color: white;
+  background-image: linear-gradient(to right, #8080800a 1px, transparent 1px),
+                    linear-gradient(to bottom, #8080800a 1px, transparent 1px);
+  background-size: 14px 24px;
 }
