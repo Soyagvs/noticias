@@ -1,0 +1,119 @@
+---
+import "../../styles/global.css";
+
+import { getCollection } from "astro:content";
+import Card from "../../components/Card.astro";
+
+export async function getStaticPaths() {
+  const news = await getCollection("news");
+
+  // Extraer todas las categorías únicas
+  const categories = [...new Set(news.map((post: any) => post.data.category))];
+
+  return categories.map((category) => ({
+    params: { category },
+    props: {
+      news: news.filter((post: any) => post.data.category === category),
+    }, // Filtra noticias por categoría
+  }));
+}
+
+// Obtener las noticias filtradas en la página
+const { news } = Astro.props;
+const { category } = Astro.params;
+---
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<main class="section-hero markdown-background">
+  <a href="/" class="back-button">← go back</a>
+  <h1 class="text-2xl font-bold mt-16">Categories: {category}</h1>
+
+  <div
+    class="flex flex-wrap max-w-7xl mx-auto gap-5 justify-center items-center mt-20"
+  >
+    {
+      news.map((post: any) => (
+        <a href={`/news/${post.slug}`} class="block">
+          <Card
+            title={post.data.title}
+            date={post.data.date}
+            image={post.data.image}
+            category={post.data.category}
+          />
+        </a>
+      ))
+    }
+  </div>
+</main>
+<style is:inline>
+  /* Sección principal (hero) */
+  .section-hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 4rem;
+    position: relative; /* Necesario para posicionar el botón */
+  }
+
+  /* Botón "Volver atrás" */
+  .back-button {
+    display: flex;
+    position: absolute;
+    top: 10px; /* Ajusta la posición vertical */
+    left: 20%;
+    transform: translateX(-50%); /* Centra el botón horizontalmente */
+    color: black;
+    font-size: 2rem; /* 18px */
+    cursor: pointer;
+    outline: none;
+    border: none;
+    text-decoration: underline;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .back-button:focus {
+    outline: none; /* Evita que el borde azul aparezca cuando se hace focus */
+  }
+
+  .back-button:hover {
+    color: blue; /* Efecto hover más oscuro */
+  }
+
+  @media (width >= 768px) {
+    .back-button {
+      padding: 8px 16px;
+    }
+  }
+
+  @media (width < 768px) {
+    .back-button {
+      font-size: 1.3rem; /* 18px */
+    }
+  }
+
+  @media (width > 768px) {
+    .back-button {
+      font-size: 1rem; /* Tamaño más pequeño en móvil */
+    }
+  }
+
+  .markdown-background {
+    position: relative;
+    inset: 0;
+    z-index: 0;
+    height: 100%;
+    width: screen;
+    background-color: white;
+    background-image: linear-gradient(to right, #8080800a 1px, transparent 1px),
+      linear-gradient(to bottom, #8080800a 1px, transparent 1px);
+    background-size: 14px 24px;
+  }
+</style>

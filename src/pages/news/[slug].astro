@@ -36,22 +36,25 @@ const { Content } = await post.render();
 
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
-<section class="section-hero markdown-background">
-  <a href="/" class="back-button">← go back</a>
-  <img class="image-hero" src={post.data.image} alt={post.data.title} />
-  <h1 class="title-h1">{post.data.title}</h1>
-  <p class="data">
-    by <span class="name"
-      >{post.data.author} | <span class="date-name"
-        >{new Date(post.data.date).toLocaleDateString()}</span
-      ></span
-    >
-    <span class="category-label">{post.data.category || 'Sin categoría'}</span>
-  </p>
-</section>
+<main>
+  <section class="section-hero markdown-background">
+    <a href="/" class="back-button">← go back</a>
+    <img class="image-hero" src={post.data.image} alt={post.data.title} />
+    <h1 class="title-h1">{post.data.title}</h1>
+    <p class="data">
+      by <span class="name"
+        >{post.data.author} | <span class="date-name"
+          >{new Date(post.data.date).toLocaleDateString()}</span
+        ></span
+      >
+      <span class="category-label">{post.data.category || "Sin categoría"}</span
+      >
+    </p>
+  </section>
 
-<div class="content markdown-background ">
-  <Content />
-</div>
+  <div class="content markdown-background">
+    <Content />
+  </div>
+</main>
