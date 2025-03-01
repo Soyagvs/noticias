@@ -1,4 +1,6 @@
 ---
+import "../styles/slug.css";
+
 const title = "Categorias | DayNews";
 const description = "Bienvenido a mi increíble sitio web, aquí encontrarás las últimas noticias de tecnología, deportes, entretenimiento y mucho más.";
 const keywords = "HTML, CSS, JavaScript, Astro";
@@ -11,6 +13,7 @@ const image = "";
 <head>
     <!-- Meta estándar -->
     <title>{title}</title>
+    <meta charset="UTF-8">
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
     <meta name="author" content={author} />
@@ -57,6 +60,16 @@ const image = "";
     </script>
   </head>
 
-<main>
-
+<main class="">
+  <div class="section-hero markdown-background">
+    <a href="/" class="back-button">← go back</a>
+    <h1 class="section-title-categories">Categorías</h1>
+    <ol class="content-categories-ol">
+      <li><a href="/categories/technology">Tecnología</a></li>
+      <li><a href="/categories/sports">Deportes</a></li>
+      <li><a href="/categories/entertainment">Entretenimiento</a></li>
+      <li><a href="/categories/health">Salud</a></li>
+      <li><a href="/categories/science">Ciencia</a></li>
+      <li><a href="/categories/politics">Política</a></li>
+  </div>
 </main>
