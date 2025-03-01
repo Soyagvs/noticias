@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
 import Card from "../components/Card.astro";
-import ButtonSeeAll from "../components/ui/ButtonSeeAll.astro";
 
 // Obtener las noticias
 const news = await getCollection("news");
@@ -23,6 +22,7 @@ const latestNews = news
             title={post.data.title}
             date={post.data.date}
             image={post.data.image}
+            category={post.data.category}
           />
         </a>
       ))

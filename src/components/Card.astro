@@ -1,5 +1,5 @@
 ---
-const { title, date, image } = Astro.props;
+const { title, date, image, category } = Astro.props;
 ---
 
 <div class="w-72 h-60 rounded-xl max-md:w-72 max-md:h-60 hover:transition-all duration-500 hover:scale-105 shadow-lg gap-1 flex flex-col bg-white">
@@ -7,12 +7,15 @@ const { title, date, image } = Astro.props;
     <!-- Usar la imagen proporcionada, si no hay imagen, mostrar una imagen predeterminada -->
     <img src={image || '/images/default.jpg'} alt={title} class="rounded-t-xl" />
   </div>
-  <div>
-    <h2 class="px-3 py-3 flex justify-start items-center text-2xl font-semibold text-pretty -mb-2">
+  <div class="px-3 py-2">
+    <!-- Indicador de categoría -->
+    <span class="bg-gray-200 text-gray-700 text-xs font-semibold uppercase px-2 py-1 rounded-md">
+      {category || 'Sin categoría'}
+    </span>
+    
+    <h2 class="mt-2 text-2xl font-semibold text-pretty ">
       {title || 'Sin título'}
     </h2>
-    <p class="px-4 flex justify-start items-center text-pretty text-xs">
-      {date || 'Fecha no disponible'}
-    </p>
+    <p class="px-1 text-xs font-thin text-gray-500">{date || 'Fecha no disponible'}</p>
   </div>
 </div>

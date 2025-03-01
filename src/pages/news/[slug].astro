@@ -11,6 +11,7 @@ interface Post {
     author: string;
     date: string;
     image: string;
+    category: string;
   };
   render: () => Promise<{ Content: any }>;
 }
@@ -47,6 +48,7 @@ const { Content } = await post.render();
         >{new Date(post.data.date).toLocaleDateString()}</span
       ></span
     >
+    <span class="category-label">{post.data.category || 'Sin categoría'}</span>
   </p>
 </section>
 
