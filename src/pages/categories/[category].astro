@@ -17,16 +17,19 @@ export async function getStaticPaths() {
 
 // Obtener las noticias filtradas por categoría
 const { category } = Astro.params;
-const news = await getCollection("news");
+const news = await getCollection("news").then((allNews: any) =>
+  allNews.filter((post: any) => post.data.category === category)
+);
 
 // Filtrar noticias por la categoría seleccionada
 const categoryNews = news.filter(
   (post: any) => post.data.category === category
 );
 ---
+
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
 </head>
 
 <main class="section-hero markdown-background">

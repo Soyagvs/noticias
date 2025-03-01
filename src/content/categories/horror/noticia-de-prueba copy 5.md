@@ -1,5 +1,5 @@
 ---
-title: 'Titulo de prueba'
+title: 'Titulo de prueba terror'
 author: 'Martinez Agustin'
 image: '/assets/js.png'
 description: 'Se trata de una publicacion de prueba'
