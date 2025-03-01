@@ -10,6 +10,7 @@ const newsCollection = defineCollection({
     description: z.string(),
     date: z.string(), // Usar z.date() para la fecha
     slug: z.string(),
+    category: z.string(),
   }),
 });
 
