@@ -1,0 +1,32 @@
+---
+import { getCollection } from "astro:content";
+
+// Definir getStaticPaths para obtener todas las noticias dentro de una categoría
+export async function getStaticPaths() {
+  const news = await getCollection("news");
+
+  // Obtener todas las noticias por categoría y slug
+  const paths = news.map((post: any) => ({
+    params: { category: post.data.category, slug: post.slug }, // Ruta dinámica para la categoría y slug
+  }));
+
+  return paths;
+}
+
+// Obtener la noticia filtrada por categoría y slug
+const { category, slug } = Astro.params;
+const news = await getCollection("news");
+const post = news.find((p: any) => p.slug === slug && p.data.category === category);
+
+// Si no hay post, se puede devolver una página 404
+if (!post) {
+  throw new Error("Post not found");
+}
+
+---
+
+<main>
+  <h1>{post.data.title}</h1>
+  <img src={post.data.image || "/images/default.jpg"} alt={post.data.title} />
+  <div>{post.body}</div> {/* Muestra el contenido de la noticia (si usas Markdown) */}
+</main>

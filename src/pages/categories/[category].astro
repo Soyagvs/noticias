@@ -1,9 +1,9 @@
 ---
 import "../../styles/global.css";
-
 import { getCollection } from "astro:content";
 import Card from "../../components/Card.astro";
 
+// Definir getStaticPaths para obtener todas las categorías
 export async function getStaticPaths() {
   const news = await getCollection("news");
 
@@ -11,21 +11,22 @@ export async function getStaticPaths() {
   const categories = [...new Set(news.map((post: any) => post.data.category))];
 
   return categories.map((category) => ({
-    params: { category },
-    props: {
-      news: news.filter((post: any) => post.data.category === category),
-    }, // Filtra noticias por categoría
+    params: { category }, // Pasamos la categoría como parámetro
   }));
 }
 
-// Obtener las noticias filtradas en la página
-const { news } = Astro.props;
+// Obtener las noticias filtradas por categoría
 const { category } = Astro.params;
----
+const news = await getCollection("news");
 
+// Filtrar noticias por la categoría seleccionada
+const categoryNews = news.filter(
+  (post: any) => post.data.category === category
+);
+---
 <head>
-  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
 </head>
 
 <main class="section-hero markdown-background">
@@ -36,8 +37,8 @@ const { category } = Astro.params;
     class="flex flex-wrap max-w-7xl mx-auto gap-5 justify-center items-center mt-20"
   >
     {
-      news.map((post: any) => (
-        <a href={`/categories/${post.slug}`} class="block">
+      categoryNews.map((post: any) => (
+        <a href={`/categories/${category}/${post.slug}`} class="block">
           <Card
             title={post.data.title}
             date={post.data.date}
