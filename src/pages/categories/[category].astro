@@ -37,7 +37,7 @@ const { category } = Astro.params;
   >
     {
       news.map((post: any) => (
-        <a href={`/news/${post.slug}`} class="block">
+        <a href={`/categories/${post.slug}`} class="block">
           <Card
             title={post.data.title}
             date={post.data.date}
@@ -49,6 +49,7 @@ const { category } = Astro.params;
     }
   </div>
 </main>
+
 <style is:inline>
   /* Sección principal (hero) */
   .section-hero {
