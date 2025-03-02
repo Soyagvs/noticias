@@ -1,12 +1,18 @@
 FORMA DE EMPEZAR EL ARCHIVO
 
 ---
-title: "Titulo de prueba"
-author: ""
-image: ""
-description: ""
-date: "01-27-1999" mes-dia-año
+title: 'Titulo de prueba'
+author: 'Martinez Agustin'
+image: '/assets/js.png'
+description: 'Se trata de una publicacion de prueba'
+date: '1-27-2025'
+category: "socials"
 ---
+
+# Titulo de la publiacion
+
+
+## Subtitulo
 
 .................................................................................
 
