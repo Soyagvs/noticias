@@ -4,6 +4,7 @@ import Card from "../components/Card.astro";
 
 // Obtener las noticias
 const news = await getCollection("news");
+console.log(news);
 
 // Ordenar por fecha y tomar las 3 últimas
 const latestNews = news
