@@ -1,5 +1,5 @@
 ---
-title: 'Titulo de prueba'
+title: 'aaaaaaaaaaaaaaaa'
 author: 'Martinez Agustin'
 image: '/assets/js.png'
 description: 'Se trata de una publicacion de prueba'
